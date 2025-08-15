@@ -1,46 +1,57 @@
-import { ImageBackground, View, Text } from "react-native";
-// import {Ionicons} from "@expo/vector-icons"
+import { View, TouchableOpacity, Text, FlatList, ImageBackground } from "react-native"
+import { useNavigation } from "@react-navigation/native"
 import AntDesign from '@expo/vector-icons/AntDesign';
-import styles from "./../style/style";
+import styles from "../style/style";
 
-function ItemCard() {
+const ItemCard = ({
+    storeData
+}) => {
+    const navigation = useNavigation();
+    const renderItem = ({ item }) => (
+        <TouchableOpacity
+            onPress={() => navigation.navigate("DetailsScreen", { item })}
 
-    return (
-        <View style={styles.itemCard}>
-            <ImageBackground
-                style={styles.itemImage}
-                source={{ uri: "https://img.freepik.com/premium-photo/modern-minimalist-night-stand-with-decoration_23-2148238557.jpg" }}
-                resizeMode="cover"
-                borderRadius={40}
-            >
-                <View style={styles.itemIcons}>
-                    <View style={styles.shoppingIconCircle}>
-                        {/* shopping icon */}
-                        <AntDesign name="shoppingcart" size={24} color="white" />
+        >
+            <View style={styles.itemCard}>
+                <ImageBackground
+                    style={styles.itemImage}
+                    source={{ uri: item.image }}
+                    resizeMode="cover"
+                    borderRadius={40}
+                >
+                    <View style={styles.itemIcons}>
+                        <View style={styles.shoppingIconCircle}>
+                            <AntDesign name="shoppingcart" size={24} color="white" />
+                        </View>
+                        <AntDesign name="hearto" size={24} color="blue" />
                     </View>
-                    {/* icon */}
-                    <AntDesign name="hearto" size={24} color="blue" />
-                </View>
-                <View style={styles.itemNameContainer}>
-                    <Text style={styles.itemName}>DESC</Text>
-                </View>
-            </ImageBackground>
+                    <View style={styles.itemNameContainer}>
+                        <Text style={styles.itemName}>{item.id}</Text>
+                    </View>
+                </ImageBackground>
 
-            <View style={styles.itemDetails}>
-                {/* price of item */}
-                <Text style={styles.itemPrice}>
-                    $42
-                </Text>
-                {/* description of item */}
-                <Text style={styles.itemDescription}>
-                    Lorem ipsum dolor sit amet
-                </Text>
+                <View style={styles.itemDetails}>
+                    <Text style={styles.itemPrice}>
+                        ${item.price}
+                    </Text>
+                    <Text style={styles.itemDescription}>
+                        {item.title}
+                    </Text>
+                </View>
+
             </View>
-
-        </View>
-
-
+        </TouchableOpacity>
+    )
+    return (
+        <FlatList
+            data={storeData}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={renderItem}
+            horizontal={false}
+            numColumns={2}
+        />
     );
+
 }
 
 

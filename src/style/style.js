@@ -1,10 +1,23 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+
+    headerCard: {
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        margin: 30
+    },
+    headerTitle: {
+        fontSize: 26,
+        fontWeight: "medium"
+
+    },
     itemCard: {
         flexDirection: 'column',
         alignItems: 'left',
-        padding: 100,
+        padding: 20,
+        width: 190,
+        height: 450,
     },
     itemImage: {
         // margin:3,
@@ -16,13 +29,13 @@ export default StyleSheet.create({
     },
     itemNameContainer: {
         position: 'absolute',
-        bottom: 10,
+        bottom: 20,
         backgroundColor: '#002881',
         borderTopRightRadius: 30,
         borderBottomRightRadius: 30,
         padding: 10,
         borderRadius: 10,
-        paddingRight: 60,
+        // paddingRight: 90,
         marginBottom: 15
     },
     itemName: {
@@ -49,10 +62,10 @@ export default StyleSheet.create({
     },
     itemPrice: {
         color: "#FF6557",
-        fontWeight:"400"
+        fontWeight: "400"
     },
     itemDescription: {
         color: "#002881",
-        fontWeight:"500"
+        fontWeight: "500"
     },
 });
