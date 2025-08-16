@@ -36,6 +36,7 @@ export default function HomeScreen() {
 
 
     const dropDownListCategorys = [
+        { label: 'All Categories', value: null },
         { label: "Men's Clothing", value: '1' },
         { label: 'Jewelery', value: '2' },
         { label: "Electronics", value: '3' },
@@ -44,6 +45,7 @@ export default function HomeScreen() {
     const [category, setCategory] = useState(null);
 
     const dropDownListPriceRange = [
+        { label: 'All Prices', value: null },
         { label: '$0 - $50', value: '1' },
         { label: '$51 - $150', value: '2' },
         { label: '$151 - $500', value: '3' },
@@ -51,15 +53,27 @@ export default function HomeScreen() {
     ];
     const [priceRange, setPriceRange] = useState(null);
 
+
+    const filteredProducts = products.filter(product => {
+        const categoryLabel = category ? dropDownListCategorys.find(c => c.value === category)?.label.toLowerCase() : null;
+        const priceRangeValues = priceRange ? dropDownListPriceRange.find(p => p.value === priceRange)?.label
+            .replaceAll("$","")
+            .split(' - ')
+            .map(Number) : null;
+        const inCategory = !categoryLabel || product.category === categoryLabel;
+        const inPriceRange = !priceRangeValues || (product.price >= priceRangeValues[0] && product.price <= priceRangeValues[1]);
+        return inCategory && inPriceRange;
+    });
+
     return (
         <View style={{ backgroundColor: "white" }}>
             {isLoading ? (
-                <ActivityIndicator color="red" size="large" style={styles.errMsg} />
+                <ActivityIndicator color="red" size="large" />
             ) : error ? <Text style={styles.errMsg}>{error}</Text> :
                 (
                     <View>
                         <HeaderCard />
-                        <View style={{ flexDirection: "row" }}>
+                        <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
                             <DropdownComponent
                                 data={dropDownListCategorys}
                                 value={category}
@@ -74,7 +88,7 @@ export default function HomeScreen() {
                             />
                         </View>
                         <ItemCard
-                            storeData={products}
+                            storeData={filteredProducts}
                         />
                     </View>
                 )}
