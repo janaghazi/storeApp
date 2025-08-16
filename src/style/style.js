@@ -12,7 +12,7 @@ export default StyleSheet.create({
         margin: 30
     },
     headerTitle: {
-        fontSize: 26,
+        fontSize: 24,
         fontWeight: "medium",
         color: "#002881"
     },
@@ -106,5 +106,30 @@ export default StyleSheet.create({
         shadowColor: "black",
         shadowOffset: 5,
         textAlign: "left",
-    }
+    },
+    dropDownContainer: {
+        backgroundColor: 'white',
+        padding: 16,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    dropdown: {
+        height: 50,
+        width: 150,
+        borderColor: '#FF6557',
+        backgroundColor: "#FF6557",
+        borderWidth: 0.5,
+        borderRadius: 50,
+        paddingHorizontal: 8,
+    },
+    textStyle: {
+        fontWeight: "bold",
+        fontSize: 16,
+        color: "white"
+    },
+    iconStyle: {
+        width: 20,
+        height: 20,
+    },
+
 });
