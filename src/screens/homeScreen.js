@@ -14,7 +14,7 @@ export default function HomeScreen() {
     }, []);
 
     const getProducts = () => {
-        const storeURL = "https://fakestoreapi.com/products/?sort=acd"
+        const storeURL = "https://fakestoreapi.com/products/?sort=acdd"
         fetch(storeURL)
             .then((response) => {
                 if (!response.ok) {
@@ -36,7 +36,7 @@ export default function HomeScreen() {
     return (
         <View>
             {isLoading ? (
-                <ActivityIndicator color="red" size="large" />
+                <ActivityIndicator color="red" size="large" style={styles.errMsg} />
             ) : error ? <Text style={styles.errMsg}>{error}</Text> :
                 (
                     <View>

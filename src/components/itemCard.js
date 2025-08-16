@@ -10,7 +10,6 @@ const ItemCard = ({
     const renderItem = ({ item }) => (
         <TouchableOpacity
             onPress={() => navigation.navigate("DetailsScreen", { item })}
-
         >
             <View style={styles.itemCard}>
                 <ImageBackground

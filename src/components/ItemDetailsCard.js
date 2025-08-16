@@ -1,0 +1,1 @@
+import {View, Text, ImageBackground, }from "react-native"
