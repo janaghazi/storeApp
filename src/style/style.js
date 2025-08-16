@@ -1,7 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-
+    errMsg:{
+        color: "red",
+        fontSize:16,
+        textAlign: "center"
+    },
     headerCard: {
         flexDirection: 'row',
         justifyContent: "space-between",

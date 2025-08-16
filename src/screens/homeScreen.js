@@ -1,35 +1,51 @@
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, View, Text } from "react-native";
+import { useEffect, useState } from "react";
 import ItemCard from '../components/itemCard';
 import HeaderCard from '../components/HeaderCard';
-import { useEffect, useState } from "react";
-
-
-const storeURL = "https://fakestoreapi.com/products/?sort=acd"
+import styles from "../style/style"
 
 export default function HomeScreen() {
-    const [isLoading, setLoading] = useState(true)
-    const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
+    const [products, setProducts] = useState([]);
+    const [error, setError] = useState(null)
 
     useEffect(() => {
-        fetch(storeURL)
-            .then((response) => response.json())
-            .then((json) => setData(json))
-            .catch((error) => alert(error))
-            .finally(() => setLoading(false));
+        getProducts();
     }, []);
+
+    const getProducts = () => {
+        const storeURL = "https://fakestoreapi.com/products/?sort=acd"
+        fetch(storeURL)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Something went wrong");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setProducts(data);
+            })
+            .catch((error) => {
+                setError(error.message)
+                setIsLoading(false)
+            }
+            )
+            .finally(() => setIsLoading(false));
+    }
 
     return (
         <View>
             {isLoading ? (
-                <ActivityIndicator/>
-            ) : (
-                <View>
-                    <HeaderCard />
-                    <ItemCard
-                        storeData={data}
-                    />
-                </View>
-            )}
+                <ActivityIndicator color="red" size="large" />
+            ) : error ? <Text style={styles.errMsg}>{error}</Text> :
+                (
+                    <View>
+                        <HeaderCard />
+                        <ItemCard
+                            storeData={products}
+                        />
+                    </View>
+                )}
         </View>
     );
 }

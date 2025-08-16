@@ -9,6 +9,7 @@ export default function HomeStack() {
     <Stack.Navigator>
       <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name="DetailsScreen" component={DetailsScreen} options={{ title: "details" }} />
+      
     </Stack.Navigator>
   );
 }
