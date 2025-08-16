@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    errMsg:{
+    errMsg: {
         color: "red",
-        fontSize:16,
+        fontSize: 16,
         textAlign: "center"
     },
     headerCard: {
@@ -13,8 +13,8 @@ export default StyleSheet.create({
     },
     headerTitle: {
         fontSize: 26,
-        fontWeight: "medium"
-
+        fontWeight: "medium",
+        color: "#002881"
     },
     itemCard: {
         flexDirection: 'column',
@@ -72,4 +72,39 @@ export default StyleSheet.create({
         color: "#002881",
         fontWeight: "500"
     },
+    detailsImage: {
+        width: 450,
+        height: 550,
+        overflow: 'hidden',
+        justifyContent: "space-between",
+    },
+    detailsCard: {
+        backgroundColor: "white",
+        borderRadius: 25,
+    },
+    detailsTitle: {
+        color: "#0f2b64",
+        fontSize: 26,
+        textAlign: "center",
+        fontWeight: "bold"
+    },
+    priceContainer: {
+        backgroundColor: '#002881',
+        height: 100,
+        width: 190,
+        margin: 20,
+        marginLeft: 0,
+        borderTopRightRadius: 50,
+        borderBottomRightRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'left'
+    },
+    priceText: {
+        color: 'white',
+        fontSize: 40,
+        fontWeight: "bold",
+        shadowColor: "black",
+        shadowOffset: 5,
+        textAlign: "left",
+    }
 });
