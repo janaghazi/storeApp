@@ -21,7 +21,7 @@ export default StyleSheet.create({
         alignItems: 'left',
         padding: 20,
         width: 190,
-        height: 450,
+        height: 500,
     },
     itemImage: {
         // margin:3,
@@ -45,7 +45,7 @@ export default StyleSheet.create({
     itemName: {
         padding: 5,
         color: 'white',
-        fontSize: 15
+        fontSize: 15,
     },
     itemIcons: {
         flexDirection: 'row',

@@ -8,7 +8,7 @@ export default function DetailsScreen({ navigation, route }) {
     const { item } = route.params;
 
     return (
-        <View>
+        <View style={{flex:1}}>
             <ImageBackground
                 source={{ uri: item.image }}
                 style={styles.detailsImage}

@@ -11,9 +11,9 @@ const ItemCard = ({
         <TouchableOpacity
             onPress={() => navigation.navigate("DetailsScreen", { item })}
         >
-            <View style={styles.itemCard}>
+            <View style={[styles.itemCard, { height: item.customHeight }]}>
                 <ImageBackground
-                    style={styles.itemImage}
+                    style={[styles.itemImage, { height: item.customHeight - 100 }]}
                     source={{ uri: item.image }}
                     resizeMode="cover"
                     borderRadius={40}
@@ -25,19 +25,18 @@ const ItemCard = ({
                         <AntDesign name="hearto" size={24} color="blue" />
                     </View>
                     <View style={styles.itemNameContainer}>
-                        <Text style={styles.itemName}>{item.id}</Text>
+                        <Text style={styles.itemName} numberOfLines={1}>{item.title}</Text>
                     </View>
                 </ImageBackground>
 
-                <View style={styles.itemDetails}>
-                    <Text style={styles.itemPrice}>
+                <View style={styles.itemDetails} >
+                    <Text style={styles.itemPrice} >
                         ${item.price}
                     </Text>
-                    <Text style={styles.itemDescription}>
-                        {item.title}
+                    <Text style={styles.itemDescription} numberOfLines={2}>
+                        {item.description}
                     </Text>
                 </View>
-
             </View>
         </TouchableOpacity>
     )
@@ -53,5 +52,6 @@ const ItemCard = ({
 
 }
 
-
 export default ItemCard;
+
+
