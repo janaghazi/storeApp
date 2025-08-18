@@ -12,16 +12,16 @@ export default StyleSheet.create({
         margin: 30
     },
     headerTitle: {
-        fontSize: 26,
-        fontWeight: "medium"
-
+        fontSize: 24,
+        fontWeight: "500",
+        color: "#002881"
     },
     itemCard: {
         flexDirection: 'column',
-        alignItems: 'left',
+        alignItems: 'flex-start',
         padding: 20,
         width: 190,
-        height: 450,
+        height: 500,
     },
     itemImage: {
         // margin:3,
@@ -70,6 +70,66 @@ export default StyleSheet.create({
     },
     itemDescription: {
         color: "#002881",
-        fontWeight: "500"
+        fontWeight: "400"
     },
+    detailsImage: {
+        width: 450,
+        height: 550,
+        overflow: 'hidden',
+        justifyContent: "space-between",
+    },
+    detailsCard: {
+        backgroundColor: "white",
+        borderRadius: 25,
+    },
+    detailsTitle: {
+        color: "#0f2b64",
+        fontSize: 26,
+        textAlign: "center",
+        fontWeight: "bold"
+    },
+    priceContainer: {
+        backgroundColor: '#002881',
+        height: 100,
+        width: 190,
+        margin: 20,
+        marginLeft: 0,
+        borderTopRightRadius: 50,
+        borderBottomRightRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'left'
+    },
+    priceText: {
+        color: 'white',
+        fontSize: 40,
+        fontWeight: "bold",
+        shadowColor: "black",
+        shadowOffset: 5,
+        textAlign: "left",
+    },
+    dropDownContainer: {
+        backgroundColor: 'white',
+        padding: 16,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    dropdown: {
+        height: 50,
+        width: 150,
+        borderColor: '#FF6557',
+        backgroundColor: "#FF6557",
+        borderWidth: 0.5,
+        borderRadius: 50,
+        paddingHorizontal: 8,
+    },
+    textStyle: {
+        fontWeight: "bold",
+        fontSize: 16,
+        color: "white"
+    },
+    iconStyle: {
+        width: 20,
+        height: 20,
+    },
+
 });
