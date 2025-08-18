@@ -1,7 +1,17 @@
 import { ActivityIndicator, View, Text } from "react-native";
 import { useEffect, useState } from "react";
+
 import ItemCard from '../components/itemCard';
 import HeaderCard from '../components/HeaderCard';
+import DropdownComponent from "../components/DropdownComponent"
+
+import { filterProducts } from "../functions/filterProducts";
+import { getCustomHeight } from "../functions/customHeights";
+
+import { fetchProducts } from "../services/productService";
+
+import { dropDownListCategorys, dropDownListPriceRange } from "../constants/dropdownsItems";
+
 import styles from "../style/style"
 
 export default function HomeScreen() {
@@ -10,39 +20,46 @@ export default function HomeScreen() {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        getProducts();
+        fetchProducts()
+            .then(setProducts)
+            .catch(err => setError(err.message))
+            .finally(() => setIsLoading(false));
     }, []);
 
-    const getProducts = () => {
-        const storeURL = "https://fakestoreapi.com/products/?sort=acd"
-        fetch(storeURL)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Something went wrong");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setProducts(data);
-            })
-            .catch((error) => {
-                setError(error.message)
-                setIsLoading(false)
-            }
-            )
-            .finally(() => setIsLoading(false));
-    }
+    const [category, setCategory] = useState(null);
+    const [priceRange, setPriceRange] = useState(null);
+
+    const filteredProducts = filterProducts(products, category, priceRange, dropDownListCategorys, dropDownListPriceRange);
+    const alternatedProducts = filteredProducts.map((item, idx) => ({
+        ...item,
+        customHeight: getCustomHeight(idx),
+    }));
+
 
     return (
-        <View>
+        <View style={{ backgroundColor: "white", }}>
             {isLoading ? (
                 <ActivityIndicator color="red" size="large" />
             ) : error ? <Text style={styles.errMsg}>{error}</Text> :
                 (
                     <View>
                         <HeaderCard />
+                        <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
+                            <DropdownComponent
+                                data={dropDownListCategorys}
+                                value={category}
+                                onChange={setCategory}
+                                placeholder="Category"
+                            />
+                            <DropdownComponent
+                                data={dropDownListPriceRange}
+                                value={priceRange}
+                                onChange={setPriceRange}
+                                placeholder="Price Range"
+                            />
+                        </View>
                         <ItemCard
-                            storeData={products}
+                            storeData={alternatedProducts}
                         />
                     </View>
                 )}

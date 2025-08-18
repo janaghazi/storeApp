@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    errMsg:{
+    errMsg: {
         color: "red",
-        fontSize:16,
+        fontSize: 16,
         textAlign: "center"
     },
     headerCard: {
@@ -45,7 +45,7 @@ export default StyleSheet.create({
     itemName: {
         padding: 5,
         color: 'white',
-        fontSize: 15
+        fontSize: 15,
     },
     itemIcons: {
         flexDirection: 'row',
@@ -70,66 +70,6 @@ export default StyleSheet.create({
     },
     itemDescription: {
         color: "#002881",
-        fontWeight: "400"
+        fontWeight: "500"
     },
-    detailsImage: {
-        width: 450,
-        height: 550,
-        overflow: 'hidden',
-        justifyContent: "space-between",
-    },
-    detailsCard: {
-        backgroundColor: "white",
-        borderRadius: 25,
-    },
-    detailsTitle: {
-        color: "#0f2b64",
-        fontSize: 26,
-        textAlign: "center",
-        fontWeight: "bold"
-    },
-    priceContainer: {
-        backgroundColor: '#002881',
-        height: 100,
-        width: 190,
-        margin: 20,
-        marginLeft: 0,
-        borderTopRightRadius: 50,
-        borderBottomRightRadius: 50,
-        justifyContent: 'center',
-        alignItems: 'left'
-    },
-    priceText: {
-        color: 'white',
-        fontSize: 40,
-        fontWeight: "bold",
-        shadowColor: "black",
-        shadowOffset: 5,
-        textAlign: "left",
-    },
-    dropDownContainer: {
-        backgroundColor: 'white',
-        padding: 16,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    dropdown: {
-        height: 50,
-        width: 150,
-        borderColor: '#FF6557',
-        backgroundColor: "#FF6557",
-        borderWidth: 0.5,
-        borderRadius: 50,
-        paddingHorizontal: 8,
-    },
-    textStyle: {
-        fontWeight: "bold",
-        fontSize: 16,
-        color: "white"
-    },
-    iconStyle: {
-        width: 20,
-        height: 20,
-    },
-
 });

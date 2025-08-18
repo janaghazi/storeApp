@@ -8,7 +8,7 @@ function HeaderCard() {
         <View style = {styles.headerCard}>
             <AntDesign name="arrowleft" size={35} color="#1b4257" />
             <Text style = {styles.headerTitle}>
-                Furniture
+                FURNITURE
             </Text>
             <AntDesign name="shoppingcart" size={35} color="#012785" />
 
