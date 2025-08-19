@@ -1,6 +1,8 @@
 import { ActivityIndicator, View, Text } from "react-native";
 import { useEffect, useState } from "react";
 
+import * as SQLite from 'expo-sqlite';
+
 import ItemCard from '../components/itemCard';
 import HeaderCard from '../components/HeaderCard';
 import DropdownComponent from "../components/DropdownComponent"
@@ -13,6 +15,7 @@ import { fetchProducts } from "../services/productService";
 import { dropDownListCategorys, dropDownListPriceRange } from "../constants/dropdownsItems";
 
 import styles from "../style/style"
+import { populateProducts } from "../services/dbService";
 
 export default function HomeScreen() {
     const [isLoading, setIsLoading] = useState(true)
@@ -21,10 +24,14 @@ export default function HomeScreen() {
 
     useEffect(() => {
         fetchProducts()
-            .then(setProducts)
+            .then(fetchedProducts => {
+                setProducts(fetchedProducts);
+                return populateProducts(fetchedProducts);
+            })
             .catch(err => setError(err.message))
             .finally(() => setIsLoading(false));
     }, []);
+
 
     const [category, setCategory] = useState(null);
     const [priceRange, setPriceRange] = useState(null);
