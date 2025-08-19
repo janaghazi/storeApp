@@ -4,10 +4,15 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import styles from '../style/style';
 
 import QuantityCounter from "../components/QuantityCounter";
+import { handleAddToCart } from "../services/dbService";
+import {useState} from "react"
+
 
 
 export default function DetailsScreen({ navigation, route }) {
     const { item } = route.params;
+    const [quantity, setQuantity] = useState(1);
+
 
     return (
         <View style={{ flex: 1 }}>
@@ -39,12 +44,9 @@ export default function DetailsScreen({ navigation, route }) {
                     </View>
 
                     <QuantityCounter
-                        initial={1}
+                        quantity={quantity}
+                        setQuantity={setQuantity}
                         min={1}
-                        max={10}
-                        onChange={(val) => {
-                            console.log("Quantity changed to:", val);
-                        }}
                     />
 
                 </View>
@@ -60,8 +62,13 @@ export default function DetailsScreen({ navigation, route }) {
 
                     <TouchableOpacity
                         style={styles.buttonContainer}
+                        onPress={async () => {
+                            await handleAddToCart(item.id, quantity),
+                                setQuantity(1)
+                        }}
                     >
-                        <Text style={styles.buttonText}>
+                        <Text
+                            style={styles.buttonText}>
                             ADD TO CART
                         </Text>
                     </TouchableOpacity>
@@ -69,7 +76,7 @@ export default function DetailsScreen({ navigation, route }) {
 
             </View>
 
-            
+
         </View >
     );
 }
