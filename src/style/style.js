@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+
     errMsg: {
         color: "red",
         fontSize: 16,
@@ -13,8 +14,9 @@ export default StyleSheet.create({
     },
     headerTitle: {
         fontSize: 24,
-        fontWeight: "500",
-        fontWeight: "500",
+        // fontWeight: "500",
+        fontFamily: "PTSana-Bold",
+
         color: "#002881"
     },
     itemCard: {
@@ -69,11 +71,15 @@ export default StyleSheet.create({
     },
     itemPrice: {
         color: "#FF6557",
-        fontWeight: "400"
+        // fontWeight: "400"
+        fontFamily: "PTSana-Regular",
+
     },
     itemDescription: {
         color: "#002881",
-        fontWeight: "400"
+        // fontWeight: "400"
+        fontFamily: "PTSana-Regular",
+
     },
     detailsImage: {
         width: 450,
@@ -92,7 +98,9 @@ export default StyleSheet.create({
         color: "#0f2b64",
         fontSize: 26,
         textAlign: "center",
-        fontWeight: "bold"
+        // fontWeight: "bold"
+        fontFamily: "PTSana-Bold",
+
     },
     priceContainer: {
         backgroundColor: '#002881',
@@ -110,7 +118,9 @@ export default StyleSheet.create({
     priceText: {
         color: 'white',
         fontSize: 40,
-        fontWeight: "bold",
+        // fontWeight: "bold",
+        fontFamily: "PTSana-Bold",
+
         shadowColor: "black",
         textAlign: "left",
     },
@@ -132,7 +142,7 @@ export default StyleSheet.create({
 
     },
     textStyle: {
-        fontWeight: "bold",
+        fontFamily: "PTSana-Bold",
         fontSize: 16,
         color: "white"
     },
@@ -153,7 +163,10 @@ export default StyleSheet.create({
     buttonText: {
         color: "#fff",
         fontSize: 18,
-        fontWeight: "400",
+        // fontWeight: "bold"
+        fontFamily: "PTSana-Bold",
+
+
     },
     quantityContainer: {
         flexDirection: "row",
@@ -169,7 +182,9 @@ export default StyleSheet.create({
     quantityText: {
         color: "white",
         fontSize: 25,
-        fontWeight: "400",
+        // fontWeight: "400",
+        fontFamily: "PTSana-Bold",
+
         marginHorizontal: 10,
     },
     colorText: {
@@ -199,7 +214,9 @@ export default StyleSheet.create({
     quantityCheckout: {
         width: 50,
         textAlign: "center",
-        fontWeight: "bold"
+        // fontWeight: "bold"
+        fontFamily: "PTSana-Bold",
+
 
     },
     priceCheckout: {
@@ -216,11 +233,13 @@ export default StyleSheet.create({
     totalTitle: {
         color: "#082971",
         fontSize: 35,
-        fontWeight: "bold"
+        fontFamily: "PTSana-Bold",
+
     },
     totalPrice: {
         color: "#FF6557",
         fontSize: 35,
-        fontWeight: "bold",
-    }
+        fontFamily: "PTSana-Bold",
+    },
+
 });

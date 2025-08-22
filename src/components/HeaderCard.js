@@ -13,15 +13,21 @@ function HeaderCard({ headerTitle, isHome }) {
     return (
         <View style={styles.headerCard}>
 
-            if(isHome){
-                <Feather name="more-vertical" size={35} color="#1b4257"
-                onPress={() => navigation.navigate("InfoScreen")} />
-            }else{
-                <AntDesign name="arrowleft" size={35} color="#1b4257"
-                    onPress={() => navigation.navigate("HomeScreen")}
-
+            {isHome ? (
+                <Feather
+                    name="more-vertical"
+                    size={35}
+                    color="#1b4257"
+                    onPress={() => navigation.navigate("settingsScreen")}
                 />
-            }
+            ) : (
+                <AntDesign
+                    name="arrowleft"
+                    size={35}
+                    color="#1b4257"
+                    onPress={() => navigation.navigate("HomeScreen")}
+                />
+            )}
             <Text style={styles.headerTitle}>
                 {headerTitle}
             </Text>
