@@ -14,13 +14,14 @@
     "@react-navigation/stack": "^7.4.7",
     "expo": "~53.0.20",
     "expo-font": "~13.3.2",
+    "expo-sqlite": "~15.2.14",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-native": "0.79.5",
     "react-native-element-dropdown": "^2.12.4",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-masonry-list": "^2.16.2",
-    "expo-sqlite": "~15.2.14"
+    "react-native-svg": "15.11.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

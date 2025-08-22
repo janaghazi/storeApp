@@ -68,7 +68,9 @@ export default function HomeScreen() {
                 (
                     <View>
                         {/* shopping icon in header will navigate to checkout */}
-                        <HeaderCard navigation={navigation} item={products[0]} />
+                        {/* <HeaderCard navigation={navigation} item={products[0]} /> */}
+                        <HeaderCard headerTitle="FURNITURE" />
+
 
                         <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
                             <DropdownComponent

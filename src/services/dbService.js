@@ -64,6 +64,25 @@ export const handleAddToCart = async (prodID, quantity = 1) => {
     console.log("insertion in cart succesful")
 }
 
+export const deleteCartItem = async (prodID) => {
+    try {
+        await db.runAsync(`DELETE FROM Cart WHERE prodId = ?`, [prodID]);
+        console.log("Item deleted from cart successfully");
+    } catch (error) {
+        console.error("Error deleting item from cart:", error);
+    }
+}
+
+export const clearCart = async () => {
+    try {
+        await db.runAsync(`DELETE FROM Cart`);
+        console.log("Cart cleared successfully");
+    } catch (error) {
+        console.error("Error clearing cart:", error);
+    }
+};
+
+
 export const getCartItems = async () => {
     try {
         const cartItems = await db.getAllAsync(`
