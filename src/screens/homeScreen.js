@@ -1,5 +1,5 @@
 import { ActivityIndicator, View, Text } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import ItemCard from '../components/itemCard';
 import HeaderCard from '../components/HeaderCard';
@@ -10,15 +10,18 @@ import { getCustomHeight } from "../functions/customHeights";
 
 import { fetchProducts } from "../services/productService";
 
-import { dropDownListCategorys, dropDownListPriceRange } from "../constants/dropdownsItems";
+import { getDropDownListCategorys, getDropDownListPriceRange } from "../constants/dropdownsItems";
 
 import styles from "../style/style"
 import { populateProducts, initDatabase } from "../services/dbService";
 
 import { useNavigation } from "@react-navigation/native"
-
+import { LanguageContext } from "../context/LanguageContext"
 
 export default function HomeScreen() {
+    const { t } = useContext(LanguageContext);
+
+
     const [isLoading, setIsLoading] = useState(true)
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null)
@@ -53,7 +56,12 @@ export default function HomeScreen() {
     const [category, setCategory] = useState(null);
     const [priceRange, setPriceRange] = useState(null);
 
+
+    const dropDownListCategorys = getDropDownListCategorys();
+    const dropDownListPriceRange = getDropDownListPriceRange();
+
     const filteredProducts = filterProducts(products, category, priceRange, dropDownListCategorys, dropDownListPriceRange);
+
     const alternatedProducts = filteredProducts.map((item, idx) => ({
         ...item,
         customHeight: getCustomHeight(idx),
@@ -68,8 +76,7 @@ export default function HomeScreen() {
                 (
                     <View>
                         {/* shopping icon in header will navigate to checkout */}
-                        {/* <HeaderCard navigation={navigation} item={products[0]} /> */}
-                        <HeaderCard headerTitle="FURNITURE" />
+                        <HeaderCard headerTitle={t("appName")} isHome={true} />
 
 
                         <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>

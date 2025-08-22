@@ -1,13 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {useFonts} from "expo-font"
 import HomeStack from './screens/navigation/homeStack';
 import { NavigationContainer } from '@react-navigation/native';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
+  const [fontsLoaded] = useFonts({
+    "PTSana-Bold": require("../assets/fonts/PTSansBold.ttf"),
+    "PTSana-Regular": require("../assets/fonts/PTSansRegular.ttf")
+  });
+
+
+
   return (
+    <LanguageProvider>
       <NavigationContainer>
-        <HomeStack/>
+        <HomeStack />
       </NavigationContainer>
+    </LanguageProvider>
   );
 }
 
