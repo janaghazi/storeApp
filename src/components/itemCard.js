@@ -2,6 +2,8 @@ import { View, TouchableOpacity, Text, FlatList, ImageBackground } from "react-n
 import { useNavigation } from "@react-navigation/native"
 import AntDesign from '@expo/vector-icons/AntDesign';
 import styles from "../style/style";
+import {handleAddToCart} from "../services/dbService"
+
 
 const ItemCard = ({
     storeData
@@ -20,7 +22,7 @@ const ItemCard = ({
                 >
                     <View style={styles.itemIcons}>
                         <View style={styles.shoppingIconCircle}>
-                            <AntDesign name="shoppingcart" size={24} color="white" />
+                            <AntDesign name="shoppingcart" size={24} color="white" onPress={() => handleAddToCart(item.id)} />
                         </View>
                         <AntDesign name="hearto" size={24} color="blue" />
                     </View>

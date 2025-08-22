@@ -20,11 +20,11 @@ export default StyleSheet.create({
     itemCard: {
         flexDirection: 'column',
         alignItems: 'flex-start',
-        alignItems: 'flex-start',
         padding: 20,
         width: 190,
         height: 500,
         elevation: 50,
+        overflow: "scroll",
     },
     itemImage: {
         // margin:3,
@@ -86,8 +86,7 @@ export default StyleSheet.create({
         borderRadius: 25,
         borderStartStartRadius: 40,
         borderEndStartRadius: 40,
-        elevation: 20
-
+        elevation: 20,
     },
     detailsTitle: {
         color: "#0f2b64",
@@ -120,8 +119,6 @@ export default StyleSheet.create({
         padding: 16,
         justifyContent: "center",
         alignItems: "center",
-        // elevation: 8,
-
     },
     dropdown: {
         height: 50,
@@ -131,7 +128,7 @@ export default StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 50,
         paddingHorizontal: 8,
-        elevation: 40,
+        elevation: 80,
 
     },
     textStyle: {
@@ -175,10 +172,55 @@ export default StyleSheet.create({
         fontWeight: "400",
         marginHorizontal: 10,
     },
-    colorText:{
-        textTransform:'uppercase',
-        color:"grey",
-        fontSize:15,
-        padding:10,
+    colorText: {
+        textTransform: 'uppercase',
+        color: "grey",
+        fontSize: 15,
+        padding: 10,
+    },
+    checkoutContainer: {
+        margin: 10,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        elevation: 20,
+
+    },
+    titleView: {
+        flex: 1,
+        maxWidth: 180,
+    },
+
+    checkoutText: {
+        fontSize: 18,
+        textTransform: "uppercase",
+        color: "#002881"
+
+    },
+    quantityCheckout: {
+        width: 50,
+        textAlign: "center",
+        fontWeight: "bold"
+
+    },
+    priceCheckout: {
+        width: 70,
+        textAlign: "right"
+
+    },
+    delieveryCard: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        margin: 20,
+        // padding:10
+    },
+    totalTitle: {
+        color: "#082971",
+        fontSize: 35,
+        fontWeight: "bold"
+    },
+    totalPrice: {
+        color: "#FF6557",
+        fontSize: 35,
+        fontWeight: "bold",
     }
 });

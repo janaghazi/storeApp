@@ -5,6 +5,6 @@ export async function fetchProducts() {
   if (!response.ok) {
     throw new Error("Something went wrong while fetching");
   }
-
+  // parsed JSON from the API
   return response.json(); 
 }
