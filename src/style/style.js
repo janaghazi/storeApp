@@ -241,5 +241,27 @@ export default StyleSheet.create({
         fontSize: 35,
         fontFamily: "PTSana-Bold",
     },
-
+    languageSection: {
+        padding: 20,
+        marginTop: 20,
+    },
+    languageTitle: {
+        fontSize: 20,
+        fontFamily: "PTSana-Bold",
+        color: "#1b4257",
+        marginBottom: 15,
+    },
+    languageButton: {
+        backgroundColor: '#FF6557',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 12,
+        marginBottom: 12,
+        alignItems: "center",
+    },
+    languageButtonText: {
+        fontFamily: "PTSana-Bold",
+        color: "#fff",
+        fontSize: 20,
+    },
 });

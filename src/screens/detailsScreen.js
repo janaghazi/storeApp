@@ -37,7 +37,7 @@ export default function DetailsScreen({ navigation, route }) {
                     <Text style={styles.detailsTitle}>{item.title}</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: "space-between" }}>
+                <View style={{ flexDirection: 'row', justifyContent: "space-between"}}>
 
                     <View style={styles.priceContainer}>
                         <Text style={styles.priceText}> ${item.price}</Text>

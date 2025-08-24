@@ -91,16 +91,17 @@ export default function CheckOutScreen({ route }) {
                 </View>
 
                 <View style={styles.delieveryCard}>
+                    
                     <Text style={styles.totalTitle}>
                         TOTAL:
                     </Text>
+
                     <Text style={styles.totalPrice}>
                         ${cartTotal}
                     </Text>
+
                 </View>
-
             </View >
-
 
             <View
                 style={{
@@ -108,7 +109,6 @@ export default function CheckOutScreen({ route }) {
                     justifyContent: "flex-start",
                     alignItems: "center",
                     gap: 0
-
                 }}
             >
                 <Svg
@@ -129,13 +129,8 @@ export default function CheckOutScreen({ route }) {
                     height={100}
                     resizeMode="contain"
                 />
-
             </View>
-
-
         </View >
-
-
     );
 }
 
